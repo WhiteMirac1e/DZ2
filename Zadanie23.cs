@@ -9,7 +9,8 @@ void Kub(int N)
         int count = 1;
         while (count <= N)
         {
-            Console.WriteLine(Math.Pow(count, 3));
+            int result = Math.Pow(count, 3);
+            Console.WriteLine(result);
             count++;
         }
     }
