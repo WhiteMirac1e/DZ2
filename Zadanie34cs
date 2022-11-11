@@ -1,0 +1,14 @@
+int [] myArray = new int[5];
+Random rand = new Random();
+int count = 0;
+for (int x = 0; x < myArray.Length; x++)
+{
+    myArray[x] = rand.Next(100, 999);
+    Console.WriteLine(myArray[x]);
+    if (myArray[x] % 2 == 0)
+    {
+        count++;
+    }
+}
+  
+Console.WriteLine("Количество четных чисел в массиве: " + count);
