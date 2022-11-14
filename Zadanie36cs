@@ -1,0 +1,19 @@
+// Задайте одномерный массив, заполненный случайными числами. 
+// Найдите сумму элементов, стоящих на нечётных позициях.
+// [3, 7, 23, 12] -> 19
+// [-4, -6, 89, 6] -> 0
+int [] myArray = new int[5];
+Random rand = new Random();
+
+int sum = 0;
+for (int x = 0; x < myArray.Length; x++)
+{
+    myArray[x] = rand.Next(-10, 100);
+    Console.Write(myArray[x] + " ");
+    if (x % 2 == 0)
+    {
+        sum = sum + myArray[x];
+    }
+}
+
+Console.WriteLine("Сумма элементов массива: " + sum);
