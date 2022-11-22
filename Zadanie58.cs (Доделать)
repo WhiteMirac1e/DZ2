@@ -1,0 +1,70 @@
+// Задача 58: Задайте две матрицы. Напишите программу, которая будет находить произведение двух матриц.
+// Например, даны 2 матрицы:
+// 2 4 | 3 4
+// 3 2 | 3 3
+// Результирующая матрица будет:
+// 18 20
+// 15 18
+Console.WriteLine("Введите количество строк первой матрицы : ");
+int rows1 = Convert.ToInt32(Console.ReadLine());
+Console.WriteLine("Введите количество столбцов первой матрицы и количество строк второй матрицы: ");
+int columns1Row2 = Convert.ToInt32(Console.ReadLine());
+Console.WriteLine("Введите количество столбцов второй матрицы : ");
+int columns2 = Convert.ToInt32(Console.ReadLine());
+int range = InputNumbers("Введите диапазон: от 1 до ");
+
+int[,] firstMartrix = new int[rows1, columns1Row2];
+CreateArray(firstMartrix);
+Console.WriteLine($"\nПервая матрица:");
+WriteArray(firstMartrix);
+
+int[,] secomdMartrix = new int[columns1Rows2, columns2];
+CreateArray(secomdMartrix);
+Console.WriteLine($"\nВторая матрица:");
+WriteArray(secomdMartrix);
+
+int[,] resultMatrix = new int[rows1,columnsRow2];
+
+PrintArray(array);
+
+int multiplication = 1;
+for (int i = 0; i < rows1; i++)
+{
+  for (int j = 0; j < columnsRow2; j++)
+  {  
+  multiplication *= array[i, j];
+  }
+}
+    
+int InputNumbers(string input)
+{
+  Console.Write(input);
+  int output = Convert.ToInt32(Console.ReadLine());
+  return output;
+}
+    
+int[,] array = GetArray(rows, colums);  
+int[,] GetArray(int rows, int columns)
+{
+  int[,] result = new int[rows, columns];
+  for (int i = 0; i < rows; i++)
+  {
+    for (int j = 0; j < columns; j++)
+    {
+      result[i,j] = new Random().Next(range);
+    }
+  }
+  return result;
+}
+
+void PrintArray(int[,] inArray)
+{
+  for (int i = 0; i <  inArray.GetLength(0) ;  i++)
+  {
+    for (int j = 0; j < inArray.GetLength(1); j++)
+    {
+      Console.Write($"{inArray[i,j]:f0} ");
+    }
+      Console.WriteLine();
+  }
+}
