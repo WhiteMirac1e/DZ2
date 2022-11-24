@@ -7,22 +7,35 @@ Console.WriteLine("Введите M: ");
 int m = int.Parse(Console.ReadLine());
 Console.WriteLine("Введите N: ");
 int n = int.Parse(Console.ReadLine());
-
-PrintNumbers(m, n);
-
 void PrintNumbers(int start, int end)
 {
-    Console.Write($"{start}");
+    Console.Write($"{start} ");
     if(start == end) return;
     PrintNumbers(start + 1, end);
 }
 
-void SumOf(int start, int end, int sum)
+void SumOf(int m, int n, int sum)
 {
-    Console.Write($"сумма натуральных элементов в промежутке от M до N {sum}");
-    if (start > end) return;
-    sum += start;
-    SumOf(start, end, sum);
+    if (m > n)
+    {
+        Console.Write($"сумма натуральных элементов в промежутке от M до N = {sum} ");
+        return;
+    }
+    else
+    {
+    sum += m;
+    SumOf(m + 1, n, sum);
+    }
 }
 
-SumOf(m, n, 0);
+if (m > n)
+{
+    Console.WriteLine("Число M должно быть меньше N, введите правильные числа");
+    return;
+}
+else
+{
+    PrintNumbers(m, n);
+    Console.WriteLine();
+    SumOf(m, n, 0);
+}
